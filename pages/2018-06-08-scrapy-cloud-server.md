@@ -1,3 +1,10 @@
+---
+layout: post
+title: Scrapy爬虫部署到云服务器
+date:   2018-06-08 00:54:35 +0200
+categories: github github-pages jekyll
+tags: [jekyll,github-pages]
+---
 
 要把Scrapy写的爬虫项目部署到云服务器上，部署过程记录下来。
 

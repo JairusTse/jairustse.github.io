@@ -96,7 +96,7 @@ navs:
     target: _self
 
   -
-    href: /Scrapy爬虫部署到云服务器.html
+    href: /arch.html
     label: python
     target: _self
 
