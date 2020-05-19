@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title:  JairusTse
-subtitle: 欢迎关注我的公众号：JairusTse的日常，一起撸代码，跑步，读书
+title:  JairusTse的技术博客
+subtitle: 公众号：JairusTse的日常，一起撸代码，跑步，读书
 name: JairusTse
 email: JairusTse@163.com
 description: 本站是JairusTse的技术博客。
@@ -55,32 +55,32 @@ paginate: 10
 paginate_path: 'page:num'
 
 # Navigation. top menu list
-menus:
+# menus:
 
-  -
-    href: /tech.html
-    label: 技术
-    target: _self
+#   -
+#     href: /tech.html
+#     label: 技术
+#     target: _self
 
-  -
-    href: /life.html
-    label: 生活
-    target: _self
+#   -
+#     href: /life.html
+#     label: 生活
+#     target: _self
 
-  -
-    href: /arch.html
-    label: 架构
-    target: _self
+#   -
+#     href: /arch.html
+#     label: 架构
+#     target: _self
 
-  -
-    href: /payment.html
-    label: 支付
-    target: _self
+#   -
+#     href: /payment.html
+#     label: 支付
+#     target: _self
 
-  -
-    href: /blockchain.html
-    label: 区块链
-    target: _self
+#   -
+#     href: /blockchain.html
+#     label: 区块链
+#     target: _self
 
 
 # Navigation. main menu list
@@ -97,12 +97,12 @@ navs:
 
   -
     href: /arch.html
-    label: 微服务架构
+    label: python
     target: _self
 
   -
     href: /python.html
-    label: Python德塔赛
+    label: 产品
     target: _self
 
   -
@@ -112,7 +112,7 @@ navs:
 
   -
     href: /about.html
-    label: 我就是我
+    label: 关于我
     target: _self
 
 
