@@ -5,7 +5,7 @@ category: python
 tags: [python,scrapy,云服务器]
 ---
 
-要把Scrapy写的爬虫项目部署到云服务器上，部署过程记录下来。
+记录部署Scrapy爬虫项目到腾讯云服务器。
 
 云服务器用的是腾讯云，没有特别的理由，用新人优惠买的，便宜。服务器配置是：CentOS 7.6 64位+1核+2GB+1Mbps。
 
