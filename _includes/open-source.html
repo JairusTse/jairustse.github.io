@@ -1,52 +1,29 @@
-{% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse | where: "fork", "false" %}
-<div id="container-open-source">
-    <section class="jumbotron geopattern" data-pattern-id="{{ page.title }}">
-        <div class="container">
-            <div id="jumbotron-meta-info">
-                <h1>Open Source Projects</h1>
-                <span class="meta-info">
-                    I have <span class="repo-count badge">{{ sorted_repos.size }}</span> projects on Github
-                </span>
-            </div>
-        </div>
-    </section>
+<div class="row">
 
-    <section class="container">
-        <div class="repo-list row">
-            <!-- Check here for github metadata -->
-            <!-- https://help.github.com/articles/repository-metadata-on-github-pages/ -->
-            {% for repo in sorted_repos %}
-            <div class="col-md-4 card text-center">
-                <div class="thumbnail">
-                    <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
-                        <div class="card-image-cell">
-                            <h3 class="card-title">
-                                <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
-                            </h3>
-                        </div>
+    <div class="col-md-12">
+
+        <ul id="posts-list">
+            {% for post in site.posts %}
+                {% if post.category=='opensource' %}
+                <li class="posts-list-item">
+                    <div class="posts-content">
+                        <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+                        <a class="posts-list-name bubble-float-left" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                        <span class='circle'></span>
                     </div>
-                    <div class="caption">
-                        <div class="card-description">
-                            <p class="card-text">{{ repo.description }}</p>
-                        </div>
-                        <div class="card-text">
-                            <span data-toggle="tooltip" class="meta-info" title="{{ repo.stargazers_count }} stars">
-                                <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
-                            </span>
-                            <span data-toggle="tooltip" class="meta-info" title="{{ repo.forks_count }} forks">
-                                <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
-                            </span>
-                            <span data-toggle="tooltip" class="meta-info" title="Last updated：{{ repo.updated_at }}">
-                                <span class="octicon octicon-clock"></span>
-                                <time datetime="{{ repo.updated_at }}" title="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li>
+                {% endif %}
             {% endfor %}
-        </div>
-    </section>
+        </ul> 
+
+        <!-- Pagination -->
+        {% include pagination.html %}
+
+        <!-- Comments -->
+       <div class="comment">
+         {% include comments.html %}
+       </div>
+    </div>
 
 </div>
 <script>
@@ -54,10 +31,6 @@
 
         // Enable bootstrap tooltip
         $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-
-        $('.geopattern').each(function(){
-            $(this).geopattern($(this).data('pattern-id'));
-        });
 
     });
 </script>
