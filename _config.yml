@@ -96,12 +96,12 @@ navs:
     target: _self
 
   -
-    href: /arch.html
+    href: /python.html
     label: python
     target: _self
 
   -
-    href: /python.html
+    href: /product.html
     label: 产品
     target: _self
 
@@ -134,7 +134,7 @@ classes:
 
   -
     href: /python.html
-    name: Python德塔赛
+    name: Python
     describe: python数据分析，爬虫
 
 
