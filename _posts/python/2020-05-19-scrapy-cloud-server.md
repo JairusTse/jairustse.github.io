@@ -154,7 +154,5 @@ ps aux|grep robot
 
 完毕。
 
-__欢迎关注我的公众号：JairusTse的日常，一起撸代码，跑步，读书。__
-![JairusTse的日常](https://upload-images.jianshu.io/upload_images/5435595-7ef6e92eb2817e0f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
