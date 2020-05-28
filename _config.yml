@@ -171,12 +171,12 @@ comments_provider: gitalk
 disqus:
     username: JairusTse
 # https://imsun.net/posts/gitment-introduction/
-# gitment:
-#     owner: JairusTse
-#     repo: blog-comments
-#     oauth:
-#         client_id: cea7dec081615c0a3085
-#         client_secret: 64ce6236576f5669b25e4f87f0843fc7f6bba750
+gitment:
+    owner: JairusTse
+    repo: blog-comments
+    oauth:
+        client_id: cea7dec081615c0a3085
+        client_secret: 64ce6236576f5669b25e4f87f0843fc7f6bba750
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: JairusTse

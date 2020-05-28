@@ -7,7 +7,7 @@ tags: [python,virtualenv,virtualenvwrapper,虚拟环境]
 
 `virtualenv`用于创建python虚拟环境，`virtualenvwrapper`用于管理虚拟环境。
 
-# virtualenv
+## virtualenv概述
 
 `virtualenv`可以为每个项目搭建独立的Python虚拟环境，与其他项目独立开来，保持环境的干净，解决包冲突问题。
 
@@ -95,7 +95,7 @@ $ deactivate
 
 
 
-# virtualenvwrapper
+## virtualenvwrapper概述
 virtualenvwrapper是virtualenv的扩展工具，可以方便地创建、删除、复制、切换到不同的虚拟环境。
 
 
