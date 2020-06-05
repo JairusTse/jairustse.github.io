@@ -90,10 +90,10 @@ navs:
     href: /
     label: Home
 
-  -
-    href: /open-source.html
-    label: 开源
-    target: _self
+  # -
+  #   href: /open-source.html
+  #   label: 开源
+  #   target: _self
 
   -
     href: /python.html
@@ -123,19 +123,20 @@ labels:
 classes:
 
   -
-    href: /life.html
-    name: 我的故事
-    describe: 生活就是故事，故事就是生活
-
-  -
-    href: /arch.html
-    name: 架构师之路
-    describe: 一个架构师的自我修养
-
-  -
     href: /python.html
     name: Python
-    describe: python数据分析，爬虫
+    describe: Python爬虫，数据分析
+
+  -
+    href: /product.html
+    name: 产品之路
+    describe: 具有产品思维的技术
+
+  -
+    href: /about.html
+    name: 关于我
+    describe: 人生就是一场马拉松
+
 
 
 # ---------------- #

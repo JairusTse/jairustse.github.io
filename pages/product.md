@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 架构师的自我修养
+title: 产品之路
 titlebar: product
-subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 不想当架构师的程序员不是一个好码农
+subtitle: 做一个有产品思维的程序员
 menu: product
 css: ['blog-page.css']
 permalink: /product

@@ -1,9 +1,7 @@
 ---
 layout: page
-title: 用python学习数据科学
+title: Python爬虫，数据分析
 titlebar: python
-subtitle: <span class="mega-octicon octicon-graph"></span>&nbsp;&nbsp;
-     德塔赛是data science音译<br/>用python爬虫和数据分析是我平时的小爱好
 menu: python
 css: ['blog-page.css']
 permalink: /python
