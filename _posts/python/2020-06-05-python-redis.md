@@ -9,7 +9,8 @@ Redis可以用来做缓存，做队列，去重，实现计分板和实现发布
 
 ## 概述
 
-`Redis`是一种键值数据库，属于非关系型数据库的一种，具有极高的读写性能，适合用于处理大量数据的高访问负载。可以用来做缓存，做队列，去重，实现计分板和实现发布/订阅功能。
+`Redis`是一种键值数据库，属于非关系型数据库的一种，具有极高的读写性能，适合用于处理大量数据的高访问负载。
+`Redis`是一个单线程，单进程的数据库。n台服务器同时操作公共的Redis数据库，Redis也会让它们自动排队。
 
 
 ## 安装
@@ -39,9 +40,10 @@ Python中对Redis所有的操作都是使用`client`对象来进行。
 
 ## 基础数据结构
 #### 字符串
+字符串（String）是Redis的基本数据结构之一，由`key`和`value`两部分组成。
 ```
-# 创建（nx可省略，为True时已有key不覆盖）
-client.set('key', 'value', nx=True)
+# 创建
+client.set('key', 'value', nx=True, ex=120)
 
 # 获取所有key
 client.keys()
@@ -59,9 +61,10 @@ client.incr('key', n)
 client.dect('key', n)
 
 ```
-
+`client.set('key', 'value', nx=True, ex=120)`：nx和ex可省略，nx为True时已有key不覆盖；ex设置过期时间，过期后Redis自动删除这个key。
 
 #### 列表
+列表（Lists）好像一根放平的水管，可以从左边或者右边塞入和弹出数据。列表一般用来作为一个`队列`，存放一批可以使用相同逻辑处理的数据。
 ```
 # 左右侧添加
 client.lpush('key', 'value1', ... , 'valueN')
@@ -84,8 +87,11 @@ client.rpop('key')
 client.lset('key', index, value)
 ```
 
+`client.lpush('key', *datas)`：添加是无序的
+
 
 #### 集合
+集合（Sets）跟列表一样可以存放很多数据，但是数据不能重复，也没有顺序。集合可以用来`去重`，计算多个集合的`交集`，`并集`和`差集`。
 ```
 # 添加数据
 client.sadd('key', 'value1', ... , 'valueN')
@@ -99,7 +105,6 @@ client.spop('key')
 
 # 获取全部数据
 client.smembers('key')
-
 
 # 删除数据
 client.srem('key', 'value')
@@ -115,39 +120,41 @@ client.sdiff('key1', ... , 'keyN')
 
 ```
 
+`client.smembers('key')` ：返回的数据是无序的
 
 ## 高级数据结构
 
 #### 哈希表
-哈希表适合保存大量键值对，无论有多少键值对，查询时间始终不变。相同数量的键值对存储空间只需字符串的1/4。
+哈希表适合保存大量键值对（2^23-1，大约43亿），无论有多少键值对，查询时间始终不变。相同数量的键值对存储空间只需字符串的1/4。哈希表可以用来保存用户登录状态和积分信息（避免有太多的key和key重复的问题）。
 ```
 # 添加
-client.hset('key', '字段名', '值')
-client.hmset('key', {'字段名1': '值1', ... , '字段名n': '值n'})
+client.hset('哈希表名', '字段名', '值')
+client.hmset('哈希表名', {'字段名1': '值1', ... , '字段名n': '值n'})
 
 # 获取所有字段名
-client.hkeys('key')
+client.hkeys('哈希表名')
 
 # 获取一个字段的值
-client.hget('key', '字段名')
+client.hget('哈希表名', '字段名')
 
 # 获取多个字段的值
-client.hmget('key', ['字段名1', ..., '字段名n'])
+client.hmget('哈希表名', ['字段名1', ..., '字段名n'])
 
 # 获取所有字段名和值
-client.hgetall('key')
+client.hgetall('哈希表名')
 
 # 判断字段是否存在
-client.hexists('key', '字段名')
+client.hexists('哈希表名', '字段名')
 
 # 获取字段数量
-client.hlen('key')
+client.hlen('哈希表名')
 
 # 删除字段
-client.hdel('key', '字段名')
+client.hdel('哈希表名', '字段名')
 ```
 
 #### 发布消息/订阅频道
+`发布/订阅`是一种消息通信模式，可以实现一对多的消息实时发布功能。
 ```
 # 发布消息
 client.publish('频道名', '消息')
@@ -162,6 +169,7 @@ for message in listener.listen():
 ```
 
 #### 有序集合
+有序集合跟集合一样，数据不能重复，但是是有序的。通过score来进行排序。有序集合可以用来实现`排行榜`功能。
 ```
 # 添加
 client.zadd('key', 值1, 评分1, ..., 值n, 评分n)
