@@ -133,12 +133,24 @@ After=network.target
  
 [Service]
 Type=forking
-ExecStart=/usr/local/python3/bin/ENV/bin/python /usr/local/python3/bin/ENV/p3.py &
-PrivateTmp=true
- 
+ExecStart=/home/spider/lagou/scrapy_venv/bin/python /home/spider/lagou/scrapy_venv/project/lagou/lagou/main.py
+
 [Install]
 WantedBy=multi-user.target
 ```
+
+关于配置文件说明：  
+__[Unit]区块__：服务描述、启动顺序与依赖关系   
+`Description=robot`：服务描述  
+`After=network.target`：网络启动后执行  
+
+__[Service]区块__：不同的 unit type 就得要使用相对应的设置项目  
+`Type=forking`：ExecStart字段将以fork()方式启动，此时父进程将会退出，子进程将成为主进程    
+`ExecStart`：定义启动进程时执行的命令+参数  
+
+__[Install]区块__：将这个unit安装到哪个target里面去  
+`WantedBy=multi-user.target`：大多的服务性质的 unit 都是附挂在 multi-user.target 下面  
+
 启用自定义系统服务：
 ```
 systemctl enable robot
