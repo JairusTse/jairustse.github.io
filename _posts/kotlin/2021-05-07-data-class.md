@@ -1,24 +1,24 @@
 ---
 layout: post
-title: 数据类Data Class
+title: Kotlin数据类Data Class
 category: kotlin
 tags: [kotlin,android]
 ---
 
-kotlin 数据类 Data Class
+Kotlin数据类Data Class
 
-#### 概述
+## 概述
 `kotlin` 的数据类 `Data Class`，是只用来保存数据的类，作用类似 `Java Bean` 和 `Android` 的 `Model`，自动帮我们实现了属性的`get、set` 方法和 `toString()` 方法，很方便。
 
 
-#### Data Class 自带的方法
+## Data Class 自带的方法
 除了上面说的`get、set` 和 `toString()`，数据类还会自动实现以下函数：
 - `equals()/hashCode()`  
 - `componentN()`函数
 - `copy()`函数
 
 
-##### `equals()/hashCode()`
+### `equals()/hashCode()`
 `Data Class` 重写了父类 `Any` 的 `equals()/hashCode()` 方法。非数据类的 `equals()` 方法是根据对象的**引用**是否相同来判断两个对象是否相等。
 
 下面的代码中，cat1 和 cat2 会被认为不相等：
@@ -68,7 +68,7 @@ cat1.equals(cat2) //true，因为cat1和cat2的主构造函数值相等
 ```
   
 
-##### `componentN()`
+### `componentN()`
 数据类可以通过 `componentN()` 解构成多个变量（**仅主构造函数里面的属性**）。
 
 下面代码中，获取数据类的属性：
@@ -112,7 +112,7 @@ println("name=$name, color=$color, age=$age")
 ```
 
 
-##### `copy()`
+### `copy()`
 可以把数据类**复制**到另一个对象，同时改变一些属性。
 
 
@@ -128,7 +128,7 @@ println(cat1 == cat3) //true，属性值一样
 println(cat1 === cat3) //false，引用不一样
 ```
 
-##### 深拷贝和浅拷贝
+#### 深拷贝和浅拷贝
 
 **浅拷贝：** 新对象会拷贝就对象的属性值，如果属性是基本类型，就会拷贝基本类型的值；如果是引用，就会拷贝引用（其中一个对象修改了引用，会影响另一个对象）。
 
@@ -154,7 +154,7 @@ println(defaultName.name) //受cat2影响，变成小黑
 ```
 
 
-#### 需要注意的地方
+## 需要注意的地方
 - `Data Class` 是一个 `final` 类 **（不能被继承，`allopen`插件可破）**
 - 主构造函数至少有一个参数 **（如果要无参的构造函数，就给所有属性指定默认值）**
 - 主构造函数中的参数都要声明`var`或者`val` **（最好是`val`）**
@@ -178,7 +178,7 @@ data class Person(val name: String, val age: Int = 18)
     }
 ```
 
-#### Android中使用
+## Android中使用数据类
 
 我自己主要在 `Android` 中使用，记录几个常见用法：
 
