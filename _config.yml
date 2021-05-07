@@ -90,10 +90,10 @@ navs:
     href: /
     label: Home
 
-  # -
-  #   href: /open-source.html
-  #   label: 开源
-  #   target: _self
+  -
+    href: /kotlin.html
+    label: kotlin
+    target: _self
 
   -
     href: /python.html
@@ -121,6 +121,11 @@ labels:
 
 # selected articles，精选文章
 classes:
+
+  -
+    href: /kotlin.html
+    name: Kotlin
+    describe: Kotlin
 
   -
     href: /python.html
