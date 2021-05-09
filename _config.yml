@@ -190,5 +190,5 @@ gitalk:
     clientID: cea7dec081615c0a3085
     clientSecret: 64ce6236576f5669b25e4f87f0843fc7f6bba750
 # 在使用其它评论组件时可点击显示 Disqus
-lazy_load_disqus : true
-github: [metadata]
+# lazy_load_disqus : true
+# github: [metadata]
