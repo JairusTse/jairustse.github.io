@@ -9,7 +9,7 @@ tags: [android,Handler,AsyncTask]
 Handler消息机制是Android特有的消息机制。
 
 
-### Handler消息机制
+## Handler消息机制
 
 Android应用程序有几个不同于服务端的Java程序：
 - 主线程不能执行耗时操作，主要是为了界面不卡顿；
@@ -31,7 +31,7 @@ Handler消息机制里面有几个角色：
 _UI线程也是一个HandlerThread_
 
 
-#### ThreadLocal
+### ThreadLocal
 每个线程独有的变量，跟其他线程不共享
 
 ```
@@ -46,12 +46,12 @@ __作用：使用ThreadLocal<Looper> 来保存每个线程的Looper__
 > 获取主线程的Looper `Looper.getMainLooper()`
 
 
-### AsnycTask的内存泄漏
+## AsnycTask的内存泄漏
 AsyncTask是Android官方提供的一个线程工具，__在Android11已经弃用;__
 内存泄漏的原因：内部类会隐式持有外部类对象的引用，因为AsyncTask会启动新线程，持有的对象引用在线程结束之前不会被释放，所以一般建议使用static。但是由于 __AsyncTask一般只用来做短时间的任务，__ 晚点释放也问题不大，所以说会造成内存泄漏有点夸张。
 
 
-### Thread、Executor、AsyncTask、HandlerThread、InterService该用哪个
+## Thread、Executor、AsyncTask、HandlerThread、InterService该用哪个
 
 - __`Executor`：尽量用这个；__
 - `Thread`：尽量不直接用，不方便；
@@ -62,7 +62,7 @@ AsyncTask是Android官方提供的一个线程工具，__在Android11已经弃�
 
 
 
-### Service、IntentService该用哪个
+## Service、IntentService该用哪个
 - Service：后台线程活动的空间，需要不断跟后台线程交互用它
 - IntentService：即是一个后台任务，也有上下文信息，跟Service不算同一个工具。
 
