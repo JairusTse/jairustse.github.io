@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Kotlin
-titlebar: kotlin
-menu: kotlin
+title: Java
+titlebar: Java
+menu: Java
 css: ['blog-page.css']
-permalink: /kotlin
+permalink: /Java
 ---
 
 <div class="row">
@@ -13,7 +13,7 @@ permalink: /kotlin
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='kotlin'  or post.keywords contains 'Kotlin' %}
+                {% if post.category=='Java'  or post.keywords contains 'Java' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>

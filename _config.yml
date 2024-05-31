@@ -96,13 +96,13 @@ navs:
     target: _self
 
   -
-    href: /kotlin.html
-    label: kotlin
+    href: /java.html
+    label: java
     target: _self
 
   -
-    href: /python.html
-    label: python
+    href: /database.html
+    label: database
     target: _self
 
   -
@@ -133,14 +133,14 @@ classes:
     describe: Android
 
   -
-    href: /kotlin.html
-    name: Kotlin
-    describe: Kotlin
+    href: /java.html
+    name: Java
+    describe: Java
 
   -
-    href: /python.html
-    name: Python
-    describe: Python爬虫，数据分析
+    href: /database.html
+    name: 数据库
+    describe: 数据库
 
   -
     href: /product.html
